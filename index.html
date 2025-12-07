@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>ZoeNuru - Portable Precision Diagnostics &amp; H2E Ecosystem</title>
+  <style>
+    :root {
+      --teal: #009688;
+      --gold: #d4af37;
+      --dark: #123033;
+      --light-bg: #f5f7f8;
+      --font-main: "Montserrat", "Segoe UI", Arial, sans-serif;
+    }
+    html { box-sizing: border-box; scroll-behavior: smooth; }
+    *, *:before, *:after { box-sizing: inherit;}
+    body {
+      margin:0;
+      font-family: var(--font-main);
+      color: var(--dark);
+      background: var(--light-bg);
+      min-height:100vh;
+    }
+    header {
+      background: var(--white, #fff);
+      border-bottom: 1px solid #e3e7ea;
+    }
+    .header-main {
+      display: flex; align-items: center; justify-content: space-between;
+      max-width: 1040px; margin:0 auto; padding:16px 24px; flex-wrap: wrap;
+    }
+    .header-brand {
+      display: flex; align-items: center; gap: 12px; text-decoration:none;
+    }
+    .header-logo {
+      max-width: 46px; width:46px; height:auto; display:block;
+      border-radius: 6px;
+    }
+    .header-wordmark {
+      max-width:140px; height:auto; display:block;
+    }
+    nav {
+      display: flex; align-items: center;
+    }
+    .nav-links {
+      display: flex; gap: 0.3rem; flex-wrap: wrap;
+    }
+    .nav-link {
+      font-family: var(--font-main);
+      font-weight:500;
+      font-size:1rem;
+      color:var(--teal);
+      padding:8px 15px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background .18s, color .18s;
+    }
+    .nav-link:hover, .nav-link:focus {
+      background: var(--gold);
+      color: var(--white);
+    }
+    @media (max-width:650px) {
+      .header-main {flex-direction:column; align-items:flex-start;}
+      nav {margin-top:8px;}
+      .nav-links {flex-wrap:wrap;}
+    }
+    main {max-width:1040px; margin:32px auto 0 auto; padding:0 24px 24px 24px;}
+    .hero {
+      display:flex; flex-direction:column; align-items:center; text-align:center;
+      padding:36px 0 28px 0;
+    }
+    .hero-logo {
+      max-width:120px; width:100%; margin-bottom:18px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.05);
+    }
+    .hero-headline {
+      font-size:2.3rem; font-weight:700; color:var(--teal);
+      margin-bottom:0.6rem; letter-spacing:-2px; font-family: var(--font-main);
+    }
+    .hero-subheadline {
+      font-size:1.19rem; color:var(--dark);
+      max-width:540px; margin:0 auto 1.3rem auto;
+    }
+    .cta-row {display:flex; flex-wrap:wrap; gap:1rem; justify-content:center; margin:24px 0;}
+    .cta-button, .whatsapp-button {
+      font-family:var(--font-main); font-size:1.07rem; font-weight:600;
+      border-radius:99px; padding:0.85em 1.7em; border:none;
+      outline:none;
+      cursor: pointer; display:inline-block; margin:0;
+      background: var(--teal); color: var(--white); box-shadow:0 1px 8px 0 rgba(20,80,80,0.07);
+      border:2px solid var(--teal);
+      transition:background .22s,border-color .22s,color .22s;
+      text-decoration:none;
+    }
+    .cta-button:hover, .cta-button:focus {
+      background:var(--gold); color:var(--dark); border-color:var(--gold);
+    }
+    .whatsapp-button {
+      background: #25d366;
+      border-color: #25d366;
+      color: #fff;
+    }
+    .whatsapp-button:hover, .whatsapp-button:focus {
+      background: #1ebe57;
+      border-color: #1ebe57;
+      color: #fff;
+    }
+    .summary-cards {
+      margin: 52px 0 30px 0; display: grid; gap: 24px; grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    }
+    .summary-card {
+      background: var(--light-bg);
+      border-radius:18px;
+      padding: 33px 18px 25px 18px;
+      box-shadow: 0 1px 8px 0 rgba(50,90,100,0.06);
+      text-align:left;
+      display:flex; flex-direction:column; gap:8px;
+    }
+    .summary-card-logo {max-width:44px; margin-bottom:8px;}
+    .summary-card-title {font-size:1.18rem; font-weight:600; margin-bottom:5px; color:var(--teal);}
+    .summary-card ul {margin:0 0 0 20px; padding:0;}
+    .learnmore-link {
+      color: var(--teal); text-decoration:underline; font-size:1em; font-weight:500; margin-top:7px; display:inline-block;
+    }
+    .learnmore-link:hover, .learnmore-link:focus {color:var(--gold);}
+    .audiences-band {margin:44px 0 36px 0; padding:32px 12px; background:var(--white); border-radius:12px; box-shadow:0 2px 12px 0 rgba(0,0,0,0.03);}
+    .audiences-row {display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:16px;}
+    .audience-card {background:var(--light-bg); border-radius:9px; padding:19px 15px; font-size:1.02em;}
+    .audience-title {font-weight:600; color:var(--teal); font-size:1.08em; margin-bottom:6px;}
+    .howitworks {margin:44px 0 41px 0;}
+    .howit-title {font-size:1.22rem; font-weight:700; color:var(--teal);}
+    .howit-journey {margin-top:15px;}
+    .howit-journey span {display:inline-block; margin:0 10px 8px 0; font-size:1.07em;}
+    footer {
+      border-top: 1.5px solid #e3e3e3;
+      background: var(--white);
+      margin-top:32px;
+      padding:15px 0 8px 0;
+      font-size: 1rem;
+      color: #333;
+    }
+    .footer-content {
+      max-width:1040px; margin:0 auto; display:flex; flex-direction:column; align-items:center; gap:8px;
+      text-align:center;
+    }
+    .footer-links { display:inline; }
+    .footer-links a, .footer-links .whatsapp-button {
+      margin:0 4px;
+      color:var(--teal); font-weight:500; text-decoration:none; font-size:0.98em;
+      vertical-align:middle;
+    }
+    .footer-links a:hover, .footer-links a:focus { color:var(--gold);}
+    .footer-copyright {
+      color:#777; font-size:0.95em; margin-top:5px;
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Header/Nav -->
+  <header>
+    <div class="header-main">
+      <a href="index.html" class="header-brand">
+        <img src="Z Plain backbone.jpg" alt="ZoeNuru logo" class="header-logo">
+        <img src="ZoeNuru the umbrella company.jpg" alt="ZoeNuru wordmark" class="header-wordmark">
+      </a>
+      <nav>
+        <div class="nav-links">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="precise.html" class="nav-link">Precise</a>
+          <a href="portable.html" class="nav-link">Portable</a>
+          <a href="nest.html" class="nav-link">Nest</a>
+          <a href="academy.html" class="nav-link">Academy</a>
+          <a href="hub.html" class="nav-link">Digital Hub</a>
+          <a href="nexus.html" class="nav-link">Nexus</a>
+          <a href="contact.html" class="nav-link">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <img src="Z Plain backbone.jpg" alt="ZoeNuru Main Brand Logo" class="hero-logo">
+      <div class="hero-headline">Portable Precision Diagnostics &amp; Health-to-Economy Infrastructure for Africa</div>
+      <div class="hero-subheadline">
+        ZoeNuru connects facility-based imaging hubs, outreach POCUS, training and reliability science, digital infrastructure, and value-based financing into one coherent backbone for health systems.
+      </div>
+      <div class="cta-row">
+        <a href="precise.html" class="cta-button">For hospitals &amp; clinics</a>
+        <a href="portable.html" class="cta-button">For outreach &amp; programs</a>
+        <a href="nexus.html" class="cta-button">For funders &amp; partners</a>
+        <a href="#overview" class="cta-button">ZoeNuru in one glance</a>
+      </div>
+    </section>
+    <!-- "ZoeNuru in one glance" cards -->
+    <section id="overview">
+      <div class="summary-cards">
+        <div class="summary-card">
+          <img src="Z Precise.jpg" alt="Precise Diagnostics Logo" class="summary-card-logo">
+          <div class="summary-card-title">Reliable Imaging Everywhere</div>
+          <ul>
+            <li>Facility-based ultrasound and teleradiology</li>
+            <li>Structured reporting & automation</li>
+            <li>Integrated governance & referrals</li>
+          </ul>
+          <a href="precise.html" class="learnmore-link">Learn more</a>
+        </div>
+        <div class="summary-card">
+          <img src="Z Portable and Z Nest.jpg" alt="Portable Diagnostics Logo" class="summary-card-logo">
+          <div class="summary-card-title">Portable Outreach</div>
+          <ul>
+            <li>On-site, mobile imaging for communities</li>
+            <li>Maternal & primary health outreach</li>
+            <li>Data-driven program impact</li>
+          </ul>
+          <a href="portable.html" class="learnmore-link">Learn more</a>
+        </div>
+        <div class="summary-card">
+          <img src="Z Portable and Z Nest.jpg" alt="Nest Training Logo" class="summary-card-logo" style="object-position: bottom;">
+          <div class="summary-card-title">Training &amp; Reliability (Nest & Academy)</div>
+          <ul>
+            <li>Clinician/sonographer pathways</li>
+            <li>Supervision & reliability science</li>
+            <li>Internships, fellowships & peer learning</li>
+          </ul>
+          <a href="nest.html" class="learnmore-link">Learn more</a>
+        </div>
+        <div class="summary-card">
+          <img src="Z Digital Hub.jpg" alt="Digital Hub Logo" class="summary-card-logo">
+          <div class="summary-card-title">Digital Backbone</div>
+          <ul>
+            <li>Cloud PACS & AI decision support</li>
+            <li>Secure clinical data & dashboards</li>
+            <li>Integration for all partners</li>
+          </ul>
+          <a href="hub.html" class="learnmore-link">Learn more</a>
+        </div>
+        <div class="summary-card">
+          <img src="Z Nexus.jpg" alt="Nexus Logo" class="summary-card-logo">
+          <div class="summary-card-title">Health-to-Economy</div>
+          <ul>
+            <li>Value-based contracts & payment rails</li>
+            <li>FX/currency optimization</li>
+            <li>Pan-African analytics & rewards</li>
+          </ul>
+          <a href="nexus.html" class="learnmore-link">Learn more</a>
+        </div>
+      </div>
+    </section>
+    <!-- Who We Serve -->
+    <section class="audiences-band">
+      <h2 style="text-align:center; font-size:1.32rem; color:var(--teal); margin-bottom:22px; font-weight:700;">Who We Serve</h2>
+      <div class="audiences-row">
+        <div class="audience-card">
+          <div class="audience-title">Clinicians &amp; Sonographers</div>
+          Facility-based diagnostic tools, training, career pathways, ongoing reliability support.
+        </div>
+        <div class="audience-card">
+          <div class="audience-title">Hospital &amp; Clinic Leaders</div>
+          Scalable imaging, reporting, governance, and integration for sustainable improvement.
+        </div>
+        <div class="audience-card">
+          <div class="audience-title">Outreach Programs &amp; NGOs</div>
+          Portable solutions, targeted sites, real-time data, and value-based engagement models.
+        </div>
+        <div class="audience-card">
+          <div class="audience-title">Trainees &amp; Students</div>
+          Trusted on-ramps, learning, internships, and skills for imaging practice and innovation.
+        </div>
+        <div class="audience-card">
+          <div class="audience-title">Funders &amp; Policy Makers</div>
+          Health-to-Economy dashboards, cross-border payment rails, and outcome-focused platforms.
+        </div>
+        <div class="audience-card">
+          <div class="audience-title">Tech &amp; Implementation Partners</div>
+          Digital infrastructure, PACS & AI, interoperability, seamless integrations.
+        </div>
+      </div>
+    </section>
+    <!-- How it Works Together -->
+    <section class="howitworks">
+      <div class="howit-title">How It All Works Together</div>
+      <div class="howit-journey">
+        <span><strong>Community/Outreach</strong> → Portable → Precise → Digital Hub → Nexus</span>
+        <span><strong>Trainee</strong> → Nest/Academy → Supervised POCUS → Digital Hub Data → Nexus Insights</span>
+      </div>
+    </section>
+  </main>
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div>ZoeNuru is a portable precision diagnostics and Health‑to‑Economy ecosystem for African facilities and communities.</div>
+      <div class="footer-links">
+        <a href="mailto:info@zoenuru.com">Email</a> | 
+        <a href="https://wa.me/254700479801?text=Hi%20ZoeNuru%2C%20I%20would%20like%20to%20learn%20more%20about%20your%20services." class="whatsapp-button" target="_blank" rel="noopener">Chat on WhatsApp</a> | 
+        <a href="https://www.linkedin.com/in/gedion-maringa-2450809b" target="_blank" rel="noopener">Connect on LinkedIn</a>
+      </div>
+      <div class="footer-copyright">
+        &copy; ZoeNuru, 2025. All rights reserved.
+      </div>
+    </div>
+  </footer>
+</body>
+  </html>
