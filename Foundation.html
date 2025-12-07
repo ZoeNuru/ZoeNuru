@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>ZoeNuru Foundation</title>
+  <style>
+    :root { --teal: #009688; --gold: #d4af37; --dark: #123033; --light-bg: #f5f7f8; --font-main: "Montserrat", "Segoe UI", Arial, sans-serif; }
+    html { box-sizing: border-box; scroll-behavior: smooth; } *, *:before, *:after { box-sizing: inherit;}
+    body { margin:0; font-family:var(--font-main); color:var(--dark); background:var(--light-bg); min-height:100vh;}
+    header { background: #fff; border-bottom: 1px solid #e3e7ea;}
+    .header-main {display:flex;align-items:center;justify-content:space-between;max-width:1040px;margin:0 auto;padding:16px 24px;flex-wrap:wrap;}
+    .header-brand {display:flex;align-items:center;gap:12px;text-decoration:none;}
+    .header-logo { max-width: 46px; width:46px; height:auto; display:block; border-radius:6px;}
+    .header-wordmark {max-width:140px; height:auto; display:block;}
+    nav {display:flex;align-items:center;}
+    .nav-links {display:flex;gap:0.3rem;flex-wrap:wrap;}
+    .nav-link {font-family:var(--font-main);font-weight:500;font-size:1rem;color:var(--teal);padding:8px 15px;border-radius:6px;text-decoration:none;transition:background .18s,color .18s;}
+    .nav-link:hover,.nav-link:focus {background:var(--gold);color:var(--white);}
+    @media (max-width:650px){.header-main{flex-direction:column;align-items:flex-start;}nav{margin-top:8px;}}
+    main {max-width:1040px;margin:32px auto 0 auto;padding:0 24px 24px 24px;}
+    .page-logo {max-width:120px;width:100%;margin-bottom:25px;display:block;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.05);}
+    h1 {font-size:2.1rem;font-weight:700;color:var(--teal);letter-spacing:-2px;margin-bottom:0.75rem;font-family:var(--font-main);}
+    h2 {font-size:1.25rem;color:var(--teal);margin-top:2.4rem;font-weight:600;margin-bottom:0.4rem;}
+    p {font-size:1.08rem;margin-bottom:1.1rem;}
+    ul {margin:1.1rem 0 1.45rem 1.1rem;}
+    li {margin-bottom:0.32rem;}
+    .cta-row {display:flex;flex-wrap:wrap;gap:1rem;justify-content:left;margin:24px 0;}
+    .cta-button, .whatsapp-button {
+      font-family:var(--font-main); font-size:1.07rem; font-weight:600;
+      border-radius:99px; padding:0.85em 1.7em; border:none;
+      outline:none; cursor:pointer; display:inline-block; margin:0;
+      background:var(--teal); color:var(--white); box-shadow:0 1px 8px 0 rgba(20,80,80,0.07);
+      border:2px solid var(--teal);
+      transition:background .22s,border-color .22s,color .22s;text-decoration:none;
+    }
+    .cta-button:hover,.cta-button:focus {background:var(--gold);color:var(--dark);border-color:var(--gold);}
+    .whatsapp-button {background:#25d366;border-color:#25d366;color:#fff;}
+    .whatsapp-button:hover,.whatsapp-button:focus {background:#1ebe57;border-color:#1ebe57;color:#fff;}
+    footer {border-top:1.5px solid #e3e3e3;background:var(--white);margin-top:32px;padding:15px 0 8px 0;font-size:1rem;color:#333;}
+    .footer-content {max-width:1040px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;}
+    .footer-links {display:inline;}
+    .footer-links a,.footer-links .whatsapp-button {margin:0 4px;color:var(--teal);font-weight:500;text-decoration:none;font-size:0.98em;vertical-align:middle;}
+    .footer-links a:hover,.footer-links a:focus {color:var(--gold);}
+    .footer-copyright {color:#777;font-size:0.95em;margin-top:5px;}
+  </style>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Header/Nav -->
+  <header>
+    <div class="header-main">
+      <a href="index.html" class="header-brand">
+        <img src="Z Plain backbone.jpg" alt="ZoeNuru logo" class="header-logo">
+        <img src="ZoeNuru the umbrella company.jpg" alt="ZoeNuru wordmark" class="header-wordmark">
+      </a>
+      <nav>
+        <div class="nav-links">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="precise.html" class="nav-link">Precise</a>
+          <a href="portable.html" class="nav-link">Portable</a>
+          <a href="nest.html" class="nav-link">Nest</a>
+          <a href="academy.html" class="nav-link">Academy</a>
+          <a href="hub.html" class="nav-link">Digital Hub</a>
+          <a href="nexus.html" class="nav-link">Nexus</a>
+          <a href="foundation.html" class="nav-link">Foundation</a>
+          <a href="contact.html" class="nav-link">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <img src="Z Foundation.png" alt="ZoeNuru Foundation logo" class="page-logo">
+    <h1>ZoeNuru Foundation</h1>
+    <p>
+      The ZoeNuru Foundation accelerates local health opportunity, skills development, and capacity building for African communities—at the heart of the ZoeNuru ecosystem.
+    </p>
+    <h2>Our Mission</h2>
+    <ul>
+      <li>Empowering local health initiatives and innovation for impact</li>
+      <li>Capacity building for clinicians, students, and outreach teams</li>
+      <li>Supporting sustainable ecosystem growth</li>
+    </ul>
+    <h2>What We Do</h2>
+    <ul>
+      <li>Offer training &amp; upskilling for frontline providers</li>
+      <li>Enable community-oriented pilot projects</li>
+      <li>Drive sustainable models for health and diagnostics</li>
+    </ul>
+    <div class="cta-row">
+      <a href="contact.html" class="cta-button">Partner or Collaborate</a>
+    </div>
+  </main>
+  <footer>
+    <div class="footer-content">
+      <div>ZoeNuru is a portable precision diagnostics and Health‑to‑Economy ecosystem for African facilities and communities.</div>
+      <div class="footer-links">
+        <a href="mailto:info@zoenuru.com">Email</a> | 
+        <a href="https://wa.me/254700479801?text=Hi%20ZoeNuru%2C%20I%20would%20like%20to%20learn%20more%20about%20your%20services." class="whatsapp-button" target="_blank" rel="noopener">Chat on WhatsApp</a> | 
+        <a href="https://www.linkedin.com/in/gedion-maringa-2450809b" target="_blank" rel="noopener">Connect on LinkedIn</a>
+      </div>
+      <div class="footer-copyright">&copy; ZoeNuru, 2025. All rights reserved.</div>
+    </div>
+  </footer>
+</body>
+</html>
